@@ -38,7 +38,7 @@ export function Button({text, onClick, color = 'black', fontSize = 'md', fontWei
     return(
         <button 
             onClick={onClick} 
-            className={`p-2 ${fontSizeClasses[fontSize]} ${fontWeightClasses[fontWeight]} ${borderRadiusClasses[borderRadius]} cursor-pointer font-valley`}
+            className={`p-2 ${fontSizeClasses[fontSize]} ${fontWeightClasses[fontWeight]} ${borderRadiusClasses[borderRadius]} cursor-pointer font-valley transition-all hover:brightness-90 duration-200`}
             style={{color: color, backgroundColor: backgroundColor}}>
                 {text}
         </button>
