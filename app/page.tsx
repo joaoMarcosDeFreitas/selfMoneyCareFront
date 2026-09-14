@@ -1,9 +1,11 @@
-import { AuthTemplate } from "@/components/templates/AuthTemplate";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <div className="flex items-center justify-start min-h-screen bg-[#88BDA4]">
-        <AuthTemplate />
-    </div>
-  );
+  const isAuthenticated = false; 
+
+  if (isAuthenticated) {
+    redirect("/dashboard");
+  }
+  
+  redirect("/login");
 }

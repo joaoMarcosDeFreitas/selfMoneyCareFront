@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { NavBar } from "../components/organisms/NavBar";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local"; 
-import "./globals.css";
+import "../globals.css";
+import { redirect } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 const valleySans = localFont({
-  src: "./fonts/ValleySans-VariableFont_wght.ttf",
+  src: "../fonts/ValleySans-VariableFont_wght.ttf",
   variable: "--font-valley-sans",
 });
 
@@ -28,12 +30,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isAuthenticated = false; 
+
+  if (!isAuthenticated) {
+    redirect("/login");
+  } 
+
   return (
     <html
-      lang="pt-BR"
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${valleySans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex">
+        <NavBar />
         <main className="flex-1">{children}</main>
       </body>
     </html>
