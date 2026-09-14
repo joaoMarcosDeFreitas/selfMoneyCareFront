@@ -1,11 +1,13 @@
 import { redirect } from "next/navigation";
+import { AuthContext } from "./contexts/AuthContext";
+import { useContext } from "react";
 
 export default function Home() {
-  const isAuthenticated = false; 
+  const { isAuthenticated } = useContext(AuthContext);
 
-  if (isAuthenticated) {
+  if(isAuthenticated) {
     redirect("/dashboard");
+  } else {
+    redirect("/login");
   }
-  
-  redirect("/login");
 }
