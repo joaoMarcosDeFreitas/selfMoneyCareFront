@@ -18,7 +18,7 @@ export default function Privateayout({
   }
 
   return (
-    <div className="min-h-full flex">
+    <div className="min-h-full max-h-full flex">
       <NavBar/>
       {children}
     </div>

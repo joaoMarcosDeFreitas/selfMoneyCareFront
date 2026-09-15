@@ -1,3 +1,5 @@
+"use client"
+
 import { redirect } from "next/navigation";
 import { AuthContext } from "./contexts/AuthContext";
 import { useContext } from "react";
